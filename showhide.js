@@ -9,9 +9,9 @@ function letsRock() {
         // Get random number of targets and do setup
         const targetKount = document.getElementById("numberOfTargets").value;
         // Don't allow more than 50 targets as that's all the TDs we have
-        if (targetKount > 50)
+        if (targetKount > 20)
         {
-            alert("Maximum number of targets is 50!");
+            alert("Maximum number of targets is 20!");
             return;
         }
         const targetTime = document.getElementById("displayTime").value;
@@ -36,6 +36,7 @@ function clickedTarget(e) {
         // Make hit target image visible again
         e.target.querySelector("img").style.display = 'block';
     }
+
     console.log("Got a Hit!");
     // Update their hit score
     hits += 1;
@@ -49,8 +50,9 @@ function setUpTargetsAndPlay(numberOfTargets, displayTimeMs) {
     clicks = 0;
     targets = numberOfTargets;
     hits = 0;
-    // Clear any target images from prior game (FIXME: Sometimes doesn't remove them all :-(
+    // Clear any target images from prior game (FIXME: FIX IT :)
     $(".targetImg").remove();
+    $("<td>").remove(".targetImg");
     // Setup click detection for the entire table
     $("table").on("click", function () {
         clicks += 1;
@@ -61,7 +63,8 @@ function setUpTargetsAndPlay(numberOfTargets, displayTimeMs) {
             // Turn off click detection
             $("td").off("click");
             $("table").off("click");
-            $(".targetImg").show(); // Show where all the targets were hidden
+            $(".targetImg").show();// Show where all the targets were hidden
+            $("<td>").show(".targetImg");
         }
     });
 
@@ -74,8 +77,9 @@ function setUpTargetsAndPlay(numberOfTargets, displayTimeMs) {
         let imgID = "img" + targetNum;
 
         // Set an IMG for each randomly selected cell along with 'click' event handler
-        $('#' + tdID).append("<img id = " + imgID + " class= 'targetImg' src='bird.png'>");
-        $('#' + imgID).delay(2000).show(0); // Wait 2 seconds then show the targets
+        //Swap the bird with fish
+        $('#' + tdID).append("<img id = " + imgID + " class= 'targetImg' src='fish.png'>");
+        // $('#' + imgID).delay(2000).show(0); // Wait 2 seconds then show the targets
         $('#' + imgID).delay(displayTimeMs).hide(0); // Setup a callback that will hide the images after the specified time
         $('#' + tdID).on("click", clickedTarget);
     }

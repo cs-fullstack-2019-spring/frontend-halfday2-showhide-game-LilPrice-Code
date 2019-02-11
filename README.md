@@ -24,6 +24,12 @@ Some Ideas:
 #### The starter project includes jQuery and BootStrap, but you can enhance the game using any technology that you wish
 
 ### I IMPLEMENTED THE FOLLOWING NEW FEATURE(S):
+The now displays a water theme.
 
+Background is now a river.
+
+The target are now a fish.
+
+Reduced max target count to 20.
 
 
