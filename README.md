@@ -1,3 +1,6 @@
+### POINTS: 1.5	
+### KEY: I suspect with more time you could have done better. 
+
 # JavaScript Show/Hide Game
 
 Take this simple show/hide game and make it your own.
